@@ -1,0 +1,137 @@
+MySQL Assignment -2 (DML)
+
+
+
+1. Write a SQL statement to insert a record as follows:
+Employees :
++-------------+-------------+------------+----------+-----------------+------------+----------+----------+-----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME  | LAST_NAME  | EMAIL    | PHONE_NUMBER    | HIRE_DATE  | JOB_ID   | SALARY   | COMMISSION_PCT  | MANAGER_ID | DEPARTMENT_ID |
++-------------+-------------+------------+----------+-----------------+------------+----------+----------+-----------------+------------+---------------+
+| 100         | Steven      | King       | SKING    | 515.123.4567    | 1987-06-17 | AD_PRES  | 24000.00 | 0.00            | 200        | 10            |
+| 101         | Neena       | Kochhar    | NKOCHHAR | 515.123.4568    | 1987-06-18 | AD_VP    | 17000.00 | 0.00            | 200        | 10            |
+| 102         | Lex         | De Haan    | LDEHAAN  | 515.123.4569    | 1987-06-19 | AD_VP    | 17000.00 | 0.00            | 200        | 10            |
+| 103         | Alexander   | Hunold     | AHUNOLD  | 590.423.4567    | 1987-06-20 | IT_PROG  | 9000.00  | 0.00            | 103        | 60            |
+| 104         | Bruce       | Ernst      | BERNST   | 590.423.4568    | 1987-06-21 | IT_PROG  | 6000.00  | 0.00            | 103        | 60            |
+| 105         | David       | Austin     | DAUST
+
+Department :
++---------------+-------------------+------------+-------------+
+| DEPARTMENT_ID | DEPARTMENT_NAME   | MANAGER_ID | LOCATION_ID |
++---------------+-------------------+------------+-------------+
+| 10            | Administration    | 200        | 1700        |
+| 20            | Marketing         | 201        | 1800        |
+| 30            | Purchasing        | 114        | 1700        |
+| 40            | Human Resources   | 203        | 2400        |
+| 50            | Shipping          | 121        | 1500        |
+| 60            | IT                | 103        | 1400        |
+| 70            | Public Relations  | 204        | 2700        |
+| 80            | Sales             | 145        | 2500        |
++---------------+-------------------+------------+-------------+
+
+
+
+
+2. Write a SQL statement to insert 3 rows by a single insert statement.
+
+mysql> insert into employees values
+    -> (101, 'Neena', 'Kochhar', 'NKOCHHAR', 5151234568, '1987-06-18', 'AD_VP', 17000.00, 0.00, 200, 10),
+    -> (102, 'Lex', 'De Haan', 'LDEHAAN', 5151234569, '1987-06-19', 'AD_VP', 17000.00, 0.00, 200, 10),
+    -> (103, 'Alexander', 'Hunold', 'AHUNOLD', 5904234567, '1987-06-20', 'IT_PROG', 9000.00, 0.00, 103, 60),
+    -> (104, 'Bruce', 'Ernst', 'BERNST', 5904234568, '1987-06-21', 'IT_PROG', 6000.00, 0.00, 103, 60),
+    -> (105, 'David', 'Austin', 'DAUSTIN', 5904234569, '1987-06-22', 'IT_PROG', 4800.00, 0.00, 103, 60),
+    -> (106, 'Valli', 'Pataballa', 'VPATABAL', 5904234560, '1987-06-23', 'IT_PROG', 4800.00, 0.00, 103, 60),
+    -> (107, 'Diana', 'Lorentz', 'DLORENTZ', 5904235567, '1987-06-24', 'IT_PROG', 4200.00, 0.00, 114, 30),
+    -> (108, 'Nancy', 'Greenberg', 'NGREENBE', 5151244569, '1987-06-25', 'SA_MAN', 12000.00, 0.00, 145, 80),
+    -> (109, 'Daniel', 'Faviet', 'DFAVIET', 5151244169, '1987-06-26', 'SA_MAN', 9000.00, 0.00, 145, 80);
+Query OK, 9 rows affected (0.04 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+
+mysql> insert into department values
+    -> (10,"Administration", 200, 1700),
+    -> (20,"Marketing", 201, 1800),
+    -> (30,"Purchasing", 114, 1700),
+    -> (40,"Human Resources", 203, 2400),
+    -> (50,"Shipping", 121, 1500),
+    -> (60,"IT", 103, 1400),
+    -> (70,"Public Relations", 204, 2700),
+    -> (80,"Sales", 145, 2500);
+Query OK, 7 rows affected (0.01 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+
+
+3. Write a SQL statement to insert one row in jobs table to ensure that no duplicate
+value will be entered in the job_id column.
++----------+----------------------------------+------------+------------+
+| JOB_ID   | JOB_TITLE                        | MIN_SALARY | MAX_SALARY |
++----------+----------------------------------+------------+------------+
+| AD_PRES  | President                        | 20000      | 40000      |
+| AD_VP    | Administration Vice President    | 15000      | 30000      |
+| AD_ASST  | Administration Assistant         | 3000       | 6000       |
+| FI_MGR   | Finance Manager                  | 8200       | 16000      |
+| FI_ACCOUNT | Accountant                     | 4200       | 9000       |
+| AC_MGR   | Accounting Manager               | 8200       | 16000      |
+| AC_ACCOUNT | Public Accountant              | 4200       | 9000       |
+| SA_MAN   | Sales Manager                    | 10000      | 20000      |
++----------+----------------------------------+------------+------------+
+
+
+mysql> insert into jobs values
+    -> ('AD_PRES', 'President', 20000, 40000),
+    -> ('AD_VP', 'Administration Vice President', 15000, 30000),
+    -> ('AD_ASST', 'Administration Assistant', 3000, 6000),
+    -> ('FI_MGR', 'Finance Manager', 8200, 16000),
+    -> ('FI_ACCOUNT', 'Accountant', 4200, 9000),
+    -> ('AC_MGR', 'Accounting Manager', 8200, 16000),
+    -> ('AC_ACCOUNT', 'Public Accountant', 4200, 9000),
+    -> ('SA_MAN', 'Sales Manager', 10000, 20000);
+Query OK, 8 rows affected (0.04 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> insert into jobs values
+    -> ('AD_PRES', 'President', 20000, 40000);
+ERROR 1062 (23000): Duplicate entry 'AD_PRES' for key 'jobs.PRIMARY'
+mysql>
+
+
+
+4. Write SQL statement to increment salary of each emp by 10%.
+
+mysql> update employees set salary = salary * 1.10;
+Query OK, 9 rows affected (0.04 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+
+
+
+
+5. Write a SQL statement to change the email column of employees table with 'not
+available' for those employees whose department_id is 80 and gets a
+commission is less than .20%
+
+mysql> update employees set email = "Not Available" where
+    -> department_id = 80 and commission < 0.20;
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+
+
+
+6. Write a SQL statement to change the email column of employees table with 'not
+available' for those employees who belongs to the 'Purchasing' department.
+
+mysql> update employees set email = "Not Available" where
+    -> department_id = 30;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+
+7. Write a SQL statement to change the email and commission_pct column of
+employees table with 'not available' and 0.10 for all employees.
+
+mysql> update employees set email = "Not Available", commission = 0.10;
+Query OK, 9 rows affected (0.04 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+

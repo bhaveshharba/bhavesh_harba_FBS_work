@@ -1,0 +1,35 @@
+Data Structure
+•	What is Data Structure?
+The structurize way to the store the data for manipulation.
+
+•	Types of Data Structure
+List
+Tuple
+Set
+Dictonary
+String
+Frozenset
+
+•	4 sentences / 4 key points
+1.	Structure
+2.	Type of data
+3.	Sequence
+4.	Changeable 
+
+
+1.	List
+
+•	Structure  :-
+List is denoted by square brackets []
+
+•	Types of data :-
+List is heterogeneous type of data. Means list is capable of holding different type of data.
+
+•	Sequence :-
+It is ordered collection.
+The benefit of ordered collection is we can perform indexing and slicing on the data.
+
+•	Changeable :-
+List is mutable i.e., python will not create a new list if we modify an element in the list.
+Different operations like insertion and deletion can be performed on  list.
+
